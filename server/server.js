@@ -7,6 +7,7 @@ const server = http.createServer(app);
 
 app.use(express.json());
 app.use(express.urlencoded({ limit: "50mb", extended: false }));
+
 // Routes for the API ============================
 import root from './api/root.js'
 import signupRouter from './api/signup.js';

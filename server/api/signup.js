@@ -4,15 +4,11 @@ import { createAccount } from '../db.js';
 const router = express.Router();
 
 router.post('/signup', async (req, res) => {
-    try {
-        const { name, password } = req.body;
-        console.log(name, password);
-    } catch (e) {
-        console.log(e);
-    }
+    
+    const { username, password } = req.body;
 
     try {
-        await createAccount(name, password);
+        await createAccount(username, password);
     } catch (e) {
         console.log(e);
         return res.status(500).send('Error creating account');

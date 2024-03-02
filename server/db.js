@@ -19,7 +19,7 @@ export async function createTable() {
     if (!doesTableExist) {
         await db.schema.createTable('users', function (table) {
             table.increments();
-            table.string('name');
+            table.string('username');
             table.string('password');
             table.string("salt")
         })
@@ -28,10 +28,10 @@ export async function createTable() {
     }
 }
 
-export async function createAccount(name, password) {
+export async function createAccount(username, password) {
     const salt = await bcrypt.genSalt(10);
     const hash = await bcrypt.hash(password, salt);
-    await db('users').insert({ name, password: hash, salt });
+    await db('users').insert({ username, password: hash, salt });
 }
 
 
