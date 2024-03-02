@@ -14,22 +14,32 @@ app.use('/api/boilerplate', boilerplate);
 // Database connection ===========
 import knex from 'knex';
 
-knex({
+const db = knex({
     client: 'sqlite3',
     connection: {
       filename: "mydatabase.db"
-    }
+    },
+    useNullAsDefault: true
 });
 
+async function createTable(){
+    const doesTableExist = await db.schema.hasTable('users')
 
+    if (!doesTableExist) {
 
-knex.schema.createTable('users', function (table) {
-    table.increments();
-    table.string('name');
-    table.string('password');
-}).then(a => {
-    console.log("a")
-})
+        await db.schema.createTable('users', function (table) {
+            table.increments();
+            table.string('name');
+            table.string('password');
+        })
+
+    } else {
+        console.log("Table exists")
+    }
+}
+
+await createTable()
+
 
 // ===============================================
 
