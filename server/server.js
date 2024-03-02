@@ -32,14 +32,12 @@ async function createTable(){
             table.string('name');
             table.string('password');
         })
-
     } else {
         console.log("Table exists")
     }
 }
 
 await createTable()
-
 
 // ===============================================
 
