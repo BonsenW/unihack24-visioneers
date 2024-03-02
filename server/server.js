@@ -1,6 +1,6 @@
 import express from 'express';
 import http from 'http';
-import { createTable } from './db.js';
+import { createHealthTable, createUserTable } from './db.js';
 
 const app = express();
 const server = http.createServer(app);
@@ -12,13 +12,15 @@ app.use(express.urlencoded({ limit: "50mb", extended: false }));
 import root from './api/root.js'
 import signupRouter from './api/signup.js';
 import loginRouter from './api/login.js';
+import healthRouter from './api/health.js';
 
-app.use('/', root)
-
+app.use('/', root);
 app.use('/api/authentication', signupRouter);
-app.use('/api/authentication', loginRouter)
+app.use('/api/authentication', loginRouter);
+app.use('/api/', healthRouter);
 
-await createTable();
+await createUserTable();
+await createHealthTable();
 
 // ===============================================
 
