@@ -7,9 +7,13 @@ const server = http.createServer(app);
 // Routes for the API ============================
 import root from './api/root.js'
 import boilerplate from './api/boilerplate.js';
+import loginRouter from './api/login.js';
+
+app.use(express.json())
 
 app.use('/', root)
 app.use('/api/boilerplate', boilerplate);
+app.use('/api/authentication', loginRouter)
 
 // Database connection ===========
 import knex from 'knex';
@@ -29,7 +33,7 @@ async function createTable(){
 
         await db.schema.createTable('users', function (table) {
             table.increments();
-            table.string('name');
+            table.string('username');
             table.string('password');
         })
     } else {

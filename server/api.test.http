@@ -3,3 +3,6 @@ GET http://localhost:3000
 
 ### Boilerplate
 GET http://localhost:3000/api/boilerplate
+
+### Login
+GET http://localhost:3000/api/authetication/login
