@@ -1,3 +1,11 @@
+// add email (change username to name) as auth
+// add contact number to record, add name to record
+// authenticate health.js
+// health.js get instead of post
+// use object {email, user} in sessions
+// https://github.com/Rishi-Bidani/local-cloud/blob/main/server/routes/navigation.ts
+// https://github.com/Rishi-Bidani/local-cloud/blob/main/server/middleware/authenticator.ts
+
 import express from 'express';
 import http from 'http';
 import { createHealthTable, createUserTable } from './db.js';
