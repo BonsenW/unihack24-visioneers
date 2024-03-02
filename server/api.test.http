@@ -3,3 +3,13 @@ GET http://localhost:3000
 
 ### Boilerplate
 GET http://localhost:3000/api/boilerplate
+
+### Create account
+POST http://localhost:3000/api/authentication/signup
+content-type: application/json
+
+{
+    "name": "John Doe",
+    "password": "123456",
+}
+    
