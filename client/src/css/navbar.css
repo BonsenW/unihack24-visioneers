@@ -1,0 +1,13 @@
+.navbar {
+    display: flex;
+    align-items: center;
+    height: 3rem;
+    justify-content: space-between;
+    padding-inline: 1rem;
+    background-color: cream;
+}
+
+.navbar-auth {
+    display: flex;
+    gap: 1rem;
+}
