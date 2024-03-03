@@ -56,7 +56,9 @@
             chatContainers.forEach(container => container.style.display = 'none');
             const selectedChat = document.getElementById(`chat${chatNumber}`);
             if (selectedChat) {
-                selectedChat.style.display = 'block';
+                selectedChat.style.display = 'flex';
+                selectedChat.style.flexDirection = 'column';
+                selectedChat.style.padding = '1rem';
             }
         }
 

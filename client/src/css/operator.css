@@ -21,7 +21,7 @@ main {
 section.container {
     display: none;
     background-color: var(--bg);
-    min-height: 200vh;
+    min-height: 100vh;
 }
 
 /* Navbar specific */
@@ -52,4 +52,31 @@ nav section.nav-container {
 .nav--item:hover {
     background-color: var(--accent);
     cursor: pointer;
+}
+
+.user-input {
+    display: flex;
+    margin-top: auto;
+    gap: 1rem;
+}
+
+.user-input input {
+    flex: 1;
+}
+
+input {
+    width: 100%;
+    padding: 8px 12px;
+    background-color: var(--input-bg);
+    color: var(--text);
+    border: transparent;
+    border-radius: 5px;
+}
+
+input::placeholder {
+    text-transform: capitalize;
+}
+
+button {
+    padding: 1rem 2rem;
 }
