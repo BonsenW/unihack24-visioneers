@@ -3,6 +3,7 @@
 ## Team Details
 
 Name: And in 1st place (previously visioneers)
+
 Product name: Good Respond
 
 ## About
@@ -20,3 +21,12 @@ Our app addresses the common challenges people face during emergencies, where th
 - Send live location data
 
 ## Screenshots
+
+### Home page 🏠
+![image](https://github.com/BonsenW/unihack24-visioneers/assets/64310471/7fe76aca-9ad4-4708-9f52-f5901af6af60)
+
+![image](https://github.com/BonsenW/unihack24-visioneers/assets/64310471/7e3e2812-d6e2-4328-8ae4-4f89b1586a27)
+
+### Operator/Agent dashboard page 🎧
+
+![image](https://github.com/BonsenW/unihack24-visioneers/assets/64310471/6e394297-c03e-4bea-874a-588c04ac1ce4)
