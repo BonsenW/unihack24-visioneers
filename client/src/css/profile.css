@@ -1,0 +1,56 @@
+body {
+    background-color: var(--bg);
+}
+
+button {
+    padding: 15px 30px;
+    /* Increase padding */
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-right: 15px;
+    /* Increased margin */
+    font-size: 16px;
+    /* Increase font size */
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+.profile-container {
+    display: flex;
+    margin-inline: auto;
+    flex-flow: column;
+    max-width: min(50rem, 90%);
+    gap: 1rem;
+}
+
+h1 {
+    text-align: center;
+}
+
+label {
+    display: grid;
+    grid-template-columns: 5rem 1fr;
+    width: 100%;
+}
+
+label .title {
+    text-transform: capitalize;
+}
+
+input {
+    width: 100%;
+    padding: 10px 15px;
+    background-color: var(--input-bg);
+    color: var(--text);
+    border: transparent;
+    border-radius: 5px;
+}
+
+input::placeholder {
+    text-transform: capitalize;
+}
