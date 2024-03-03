@@ -1,0 +1,36 @@
+.navbar {
+    display: flex;
+    align-items: center;
+    height: 4rem;
+    justify-content: space-between;
+    padding-inline: 1rem;
+    background-color: cream;
+}
+
+.navbar-auth {
+    display: flex;
+    gap: 1.5rem;
+    align-items: center;
+    margin-right: 1rem;
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.navbar-logo img {
+    height: 2.5rem;
+}
+
+a.navbar-item {
+    text-decoration: none;
+}
+
+a.navbar-item:first-of-type {
+    background-color: var(--accent);
+    color: var(--bg);
+    padding: 0.5rem 1.5rem;
+    border-radius: 0.5rem;
+}

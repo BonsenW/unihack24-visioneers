@@ -6,10 +6,61 @@
   <link rel="icon" type="image/svg+xml" href="/vite.svg" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Vite App</title>
+
+  <link rel="stylesheet" href="/src/css/navbar.css">
 </head>
 
 <body>
-  <div id="app"></div>
+  <div id="app">
+    <nav class="navbar">
+      <div class="brand">
+        <a href="/" class="navbar-logo">
+          <img src="/logo.png" alt="logo">
+        </a>
+        <strong>Good Respond</strong>
+      </div>
+
+      <div class="navbar-auth">
+        <a href="/views/auth" class="navbar-item">Login</a>
+        <a href="/views/auth" class="navbar-item">Register</a>
+      </div>
+
+    </nav>
+    <div class="background-image">
+      <!-- <img src="/bg.png" alt=""> -->
+    </div>
+    <main id="index">
+      <div class="container">
+        <img src="/helipad.png" alt="">
+        <div class="text">
+          Emergency help to you, with a click of a button
+        </div>
+      </div>
+      <div class="container">
+        <img src="/operator.png" alt="">
+        <div class="text">
+          Chat with a live operator about any emergency
+        </div>
+      </div>
+      <footer>
+        ♥ Powered by Redactive AI
+      </footer>
+    </main>
+    <!-- chat button -->
+
+    <button id="chat-button" class="chat-button">Chat</button>
+
+    <div id="chat-container">
+      <div id="chat-messages">
+      </div>
+      <div id="user-input">
+        <input type="text" id="message-input" placeholder="Type your message...">
+        <button id="send-button">Send</button>
+      </div>
+    </div>
+
+
+  </div>
   <script type="module" src="/src/js/main.js"></script>
 </body>
 

@@ -1,24 +1,54 @@
 import '@/css/style.css'
-import javascriptLogo from '@/assets/javascript.svg'
-import viteLogo from '/vite.svg'
-import { setupCounter } from './counter.js'
 
-document.querySelector('#app').innerHTML = `
-  <div>
-    <a href="https://vitejs.dev" target="_blank">
-      <img src="${viteLogo}" class="logo" alt="Vite logo" />
-    </a>
-    <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank">
-      <img src="${javascriptLogo}" class="logo vanilla" alt="JavaScript logo" />
-    </a>
-    <h1>Hello Vite!</h1>
-    <div class="card">
-      <button id="counter" type="button"></button>
-    </div>
-    <p class="read-the-docs">
-      Click on the Vite logo to learn more
-    </p>
-  </div>
-`
+const botReplies = [
+    "Hello! I'm the emergency bot. What seems to be the problem?",
+    "Can you please confirm your location?",
+    "Help is on the way. Stay on the line and follow instructions.",
+    "Are you in a safe location?",
+    "Is anyone injured?",
+    "Can you describe the individuals involved?",
+    "Are they armed?",
+    "If possible, try to provide information about any hazards present.",
+];
 
-setupCounter(document.querySelector('#counter'))
+let replyIndex = 0;
+
+function addMessageToChat(message) {
+    const messageElement = document.createElement('div');
+    messageElement.classList.add('message');
+    messageElement.textContent = message;
+
+    const chatMessages = document.getElementById('chat-messages');
+    chatMessages.appendChild(messageElement);
+
+    chatMessages.scrollTop = chatMessages.scrollHeight;
+}
+
+const chatButton = document.getElementById('chat-button');
+const chatContainer = document.getElementById('chat-container');
+
+chatButton.addEventListener('click', () => {
+    chatContainer.style.display = chatContainer.style.display === 'none' ? 'block' : 'none';
+});
+
+const sendButton = document.getElementById('send-button');
+const messageInput = document.getElementById('message-input');
+
+sendButton.addEventListener('click', () => {
+    const message = messageInput.value.trim();
+
+    if (message) {
+        addMessageToChat(`You: ${message}`);
+
+        replyIndex += 1;
+        const reply = botReplies[replyIndex-1];
+
+        const delay = Math.floor(Math.random() * (2000 - 1000 + 1)) + 1000;
+
+        setTimeout(() => {
+            addMessageToChat(`Bot: ${reply}`);
+        }, delay);       
+        
+        messageInput.value = '';
+    }
+});
