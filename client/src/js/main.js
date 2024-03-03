@@ -8,7 +8,7 @@ const botReplies = [
     "Is anyone injured?",
     "Can you describe the individuals involved?",
     "Are they armed?",
-    "If possible, try to provide information about any hazards present."
+    "If possible, try to provide information about any hazards present.",
 ];
 
 let replyIndex = 0;

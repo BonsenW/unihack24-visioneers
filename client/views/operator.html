@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -9,8 +9,6 @@
     <link rel="stylesheet" href="/src/css/style.css">
     <link rel="stylesheet" href="/src/css/navbar.css">
     <link rel="stylesheet" href="/src/css/operator.css">
-
-    <script src="/src/js/authtabs.js" type="module"></script>
 </head>
 
 <body>
@@ -18,19 +16,68 @@
         <nav>
             <header class="title">Operator dashboard</header>
             <section class="nav-container">
-                <div class="nav--item">Chat 1</div>
-                <div class="nav--item">Chat 2</div>
-                <div class="nav--item">Chat 3</div>
+                <div class="nav--item" onclick="showChat(1)">Chat 1</div>
+                <div class="nav--item" onclick="showChat(2)">Chat 2</div>
+                <div class="nav--item" onclick="showChat(3)">Chat 3</div>
             </section>
             <footer>Logout</footer>
         </nav>
         <!-- Only main will scroll -->
         <main>
-            <section class="container">
-                swpoejfwpeo
+            <section class="container chat-container" id="chat1">
+                <div class="chat-log" id="chat-log-1">
+                    <div class="message operator">
+                        <span class="sender">Operator</span>
+                        <span class="timestamp">12:00 PM</span>
+                        <span class="content">Welcome to the chat. How can I assist you?</span>
+                    </div>
+                    <div class="message patient">
+                        <span class="sender">Patient</span>
+                        <span class="timestamp">12:01 PM</span>
+                        <span class="content">I need help with an emergency.</span>
+                    </div>
+                </div>
+                <div class="user-input">
+                    <input type="text" id="message-input-1" placeholder="Type your message...">
+                    <button class="send-button" onclick="sendMessage(1)">Send</button>
+                </div>
+            </section>
+            <section class="container chat-container" id="chat2">
+                <!-- chat2 -->
+            </section>
+            <section class="container chat-container" id="chat3">
+                <!-- chat3 -->
             </section>
         </main>
     </div>
+    <script>
+        function showChat(chatNumber) {
+            const chatContainers = document.querySelectorAll('.chat-container');
+            chatContainers.forEach(container => container.style.display = 'none');
+            const selectedChat = document.getElementById(`chat${chatNumber}`);
+            if (selectedChat) {
+                selectedChat.style.display = 'block';
+            }
+        }
+
+        function sendMessage(chatNumber) {
+            const messageInput = document.getElementById(`message-input-${chatNumber}`);
+            const messageContent = messageInput.value.trim();
+            if (messageContent) {
+                const timestamp = new Date().toLocaleTimeString();
+                const chatLog = document.getElementById(`chat-log-${chatNumber}`);
+                const message = `
+                    <div class="message operator">
+                        <span class="sender">Operator</span>
+                        <span class="timestamp">${timestamp}</span>
+                        <span class="content">${messageContent}</span>
+                    </div>
+                `;
+                chatLog.insertAdjacentHTML('beforeend', message);
+                messageInput.value = '';
+            }
+        }
+    </script>
 </body>
 
 </html>

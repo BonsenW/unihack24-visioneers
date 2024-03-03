@@ -19,6 +19,7 @@ main {
 }
 
 section.container {
+    display: none;
     background-color: var(--bg);
     min-height: 200vh;
 }
