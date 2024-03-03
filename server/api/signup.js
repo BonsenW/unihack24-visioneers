@@ -3,6 +3,7 @@ import { createAccount } from '../db.js';
 
 const router = express.Router();
 
+// Router for creating an account
 router.post('/signup', async (req, res) => {
     
     const { username, password } = req.body;

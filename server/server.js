@@ -1,25 +1,23 @@
 // add email (change username to name) as auth
 // add contact number to record, add name to record
-// authenticate health.js
-// health.js get instead of post
 // use object {email, user} in sessions
-// https://github.com/Rishi-Bidani/local-cloud/blob/main/server/routes/navigation.ts
-// https://github.com/Rishi-Bidani/local-cloud/blob/main/server/middleware/authenticator.ts
 
 import express from 'express';
 import http from 'http';
 import { createHealthTable, createUserTable } from './db.js';
+import cookieParser from 'cookie-parser';
 
 const app = express();
 const server = http.createServer(app);
 
 app.use(express.json());
 app.use(express.urlencoded({ limit: "50mb", extended: false }));
+app.use(cookieParser());
 
 // Routes for the API ============================
 import root from './api/root.js'
 import signupRouter from './api/signup.js';
-import loginRouter from './api/login.js';
+import {loginRouter} from './api/login.js';
 import healthRouter from './api/health.js';
 
 app.use('/', root);

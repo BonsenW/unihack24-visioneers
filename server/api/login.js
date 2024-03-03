@@ -1,10 +1,11 @@
 import express from 'express';
 import knex from 'knex';
 import bcrypt from 'bcrypt'
-import {v4 as uuidv4} from 'uuid';
+import { v4 as uuidv4 } from 'uuid';
 
 const router = express.Router();
 
+// Initialize knex instance for database operations
 const db = knex({
     client: 'sqlite3',
     connection: {
@@ -13,28 +14,44 @@ const db = knex({
     useNullAsDefault: true
 });
 
+// Object to store session IDs mapped to usernames
 const sessions = {};
 
-router.post('/login', async(req, res) => {
+// Route for handling user authentication
+router.post('/login', async (req, res) => {
+    const { username, password } = req.body;
 
-    const {username, password} = req.body;
+    try {
+        // Fetch user record from the database based on the provided username
+        const user = await db('users').select('password').where('username', username).first();
 
-    let hashPass = await db('users').select('password').where('username', username).first();
-    hashPass = hashPass.password
+        // if a user with the given username doesn;t exists, return a 400 Bad Request status with an error message
+        if (!user) {
+            return res.status(400).send({ error: 'Invalid username or password' });
+        }
 
-    console.log(hashPass)
-    
-    const match = await bcrypt.compare(password, hashPass)
+        // Compare the provided password with the hashed password stored in the database
+        const match = await bcrypt.compare(password, user.password);
 
-    if (match){
-        const sessionId = uuidv4();
-        sessions[sessionId] = username;
-        res.cookie('sessionId', sessionId, { httpOnly: true });
-        res.send(true)
-    } else{
-        res.send(false)
+        if (match) {
+            // Passwords match, generate a new session ID and store it with the username
+            const sessionId = uuidv4();
+            sessions[sessionId] = username;
+            // Set the session ID as a cookie in the response
+            res.cookie('sessionId', sessionId, { httpOnly: true });
+            // Return true to indicate successful login
+            res.send(true);
+        } else {
+            // Passwords don't match, return a 400 Bad Request status with an error message
+            res.status(400).send({ error: 'Invalid username or password' });
+        }
+    } catch (error) {
+        // Handle any errors that occur during the login process
+        console.error('Error during login:', error);
+        // Return a 500 Internal Server Error status with a generic error message
+        res.status(500).send({ error: 'Internal server error' });
     }
+});
 
-})
-
-export default router;
+// Export the router and sessions object for use in other modules
+export { router as loginRouter, sessions };
