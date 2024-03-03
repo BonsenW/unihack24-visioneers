@@ -44,7 +44,18 @@
       </div>
     </main>
     <!-- chat button -->
-    <a href="/views/chat" class="chat-button">Chat</a>
+
+    <button id="chat-button" class="chat-button">Chat</button>
+
+    <div id="chat-container">
+        <div id="chat-messages">
+        </div>
+        <div id="user-input">
+            <input type="text" id="message-input" placeholder="Type your message...">
+            <button id="send-button">Send</button>
+        </div>
+    </div>
+
   </div>
   <script type="module" src="/src/js/main.js"></script>
 </body>
