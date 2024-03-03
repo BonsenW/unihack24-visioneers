@@ -25,3 +25,71 @@ body {
     background-color: var(--bg);
     color: var(--text);
 }
+
+.chat-button {
+    --size: 4rem;
+    height: var(--size);
+    width: var(--size);
+    border-radius: 50%;
+    background-color: var(--accent);
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    color: var(--text);
+}
+
+main#index {
+    display: flex;
+    flex-flow: column;
+
+    & img {
+        height: 70vh;
+    }
+}
+
+.background-image {
+    position: absolute;
+    isolation: isolate;
+    z-index: -1;
+    background-image: url("../assets/bg.png");
+    width: 100%;
+    height: 200%;
+}
+.background-image::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: var(--bg);
+    opacity: 0.8;
+}
+
+main#index .container {
+    display: flex;
+    width: 90%;
+    justify-content: space-between;
+    align-items: center;
+    margin-inline: auto;
+    flex-wrap: wrap;
+}
+
+main#index .container:nth-child(even) {
+    flex-direction: row-reverse;
+}
+
+main#index .container img {
+    width: min(70vh, 100%);
+}
+
+main#index .container .text {
+    font-size: clamp(1rem, 1rem + 0.5vw, 2rem);
+    font-weight: bold;
+    background-color: var(--bg);
+    padding: 2rem 4rem;
+    border-radius: 5rem;
+    border-style: dotted;
+}

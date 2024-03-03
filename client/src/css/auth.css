@@ -1,7 +1,7 @@
-#app {
+/* #app {
     display: grid;
     place-items: center;
-}
+} */
 
 .form-container {
     border: 1px solid black;
@@ -12,6 +12,7 @@
     flex-flow: column;
     gap: 2rem;
     margin-top: 10rem;
+    margin-inline: auto;
 }
 
 .tabs {

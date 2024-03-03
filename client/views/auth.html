@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Vite App</title>
     <link rel="stylesheet" href="/src/css/style.css">
+    <link rel="stylesheet" href="/src/css/navbar.css">
     <link rel="stylesheet" href="/src/css/auth.css">
 
     <script src="/src/js/authtabs.js" type="module"></script>
@@ -14,6 +15,20 @@
 
 <body>
     <div id="app">
+        <nav class="navbar">
+            <div class="brand">
+                <a href="/" class="navbar-logo">
+                    <img src="/logo.png" alt="logo">
+                </a>
+                <strong>Good Respond</strong>
+            </div>
+
+            <div class="navbar-auth">
+                <a href="/views/auth" class="navbar-item">Login</a>
+                <a href="/views/auth" class="navbar-item">Register</a>
+            </div>
+
+        </nav>
         <!-- logo -->
 
         <!-- tabs -->
@@ -43,8 +58,8 @@
                             <input type="email" name="email" placeholder="email">
                         </label>
                         <label>
-                            <span class="visually-hidden">email</span>
-                            <input type="text" name="email" placeholder="email">
+                            <span class="visually-hidden">contact number</span>
+                            <input type="text" name="contact" placeholder="contact number">
                         </label>
                         <label>
                             <span class="visually-hidden">password</span>
