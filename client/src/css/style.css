@@ -57,7 +57,7 @@ main#index {
     z-index: -1;
     background-image: url("../assets/bg.png");
     width: 100%;
-    height: 200%;
+    height: 150%;
 }
 .background-image::after {
     content: "";
@@ -130,4 +130,15 @@ main#index .container .text {
 
 #send-button {
     cursor: pointer;
+}
+
+footer {
+    background-color: darkgray;
+    height: 5rem;
+    color: var(--bg);
+    text-align: center;
+    margin-top: 5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
