@@ -83,6 +83,7 @@ main#index .container:nth-child(even) {
 
 main#index .container img {
     width: min(70vh, 100%);
+    aspect-ratio: 3 / 2;
 }
 
 main#index .container .text {
